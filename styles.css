@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0px;
+}
+
+#header { 
+    height: 50px;
+    background: blue;
+}
+
+#footer { 
+    height: 80px;
+    background: blue;
+}
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.main { 
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: space-evenly;
+}
+
+.history,
+.display,
+.buttons {
+    border: solid 1px rgb(155, 150, 150);
+    padding: 10px;
+}
+
+.history {
+    flex: 4;
+}
+
+.display {
+    display: flex;
+    flex: .5;
+    align-items: center;
+}
+
+textarea {
+    display: inline-block;
+    /* border: none; */
+    width: 100%;
+    font-size: 115%;
+    line-height: 1;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buttonRow {
+    display: flex;
+    margin: 2px;
+    height: 40px;
+    /* justify-content: center; */
+}
+
+button {
+    height: 40px;
+    width: 40px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    margin: 0px 2px;
+    padding: 0;
+}
+
+.buttonPlaceholder {
+    width: 40px;
+}
