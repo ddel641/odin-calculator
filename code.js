@@ -1,16 +1,15 @@
 const buttons = document.querySelectorAll("button");
 const display = document.querySelector(".display");
 
-let firstNumber = null;
-let secondNumber = null;
+let firstNumber = "0";
+let secondNumber = "0";
 let answer = null;
 let operation = null;
 
 
 
 function updateDisplay(value) {
-    // let current = display.innerHTML;
-    display.innerHTML += value;
+    display.innerHTML = value;
 
     // if (!operation && !answer) {
     //     console.log(value);
@@ -26,6 +25,9 @@ function updateDisplay(value) {
 
 function processKeyValue(value) {
     if (value.match(/[0-9]/)) {
+        if (firstNumber === "0") {
+            firstNumber = value;
+        } else value : firstNumber += value;
         updateDisplay(value);
     }
 
