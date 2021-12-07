@@ -1,64 +1,105 @@
 const buttons = document.querySelectorAll("button");
 const display = document.querySelector(".display");
-let firstNumber;
-let secondNumber = "";
-let answer;
-let operation;
+
+let firstNumber = null;
+let secondNumber = null;
+let answer = null;
+let operation = null;
+
 
 
 function updateDisplay(value) {
-    if (!operation && !answer) {
-        console.log(value);
-        display.innerHTML += value;
-        firstNumber = display.innerHTML;
-    } else {
-        display.innerHTML = secondNumber;
-        display.innerHTML += value;
-        secondNumber = display.innerHTML;
-    }
-    console.log(firstNumber, secondNumber);
+    // let current = display.innerHTML;
+    display.innerHTML += value;
+
+    // if (!operation && !answer) {
+    //     console.log(value);
+    //     display.innerHTML += value;
+    //     firstNumber = display.innerHTML;
+    // } else {
+    //     display.innerHTML = secondNumber;
+    //     display.innerHTML += value;
+    //     secondNumber = display.innerHTML;
+    // }
+    // console.log(firstNumber, secondNumber);
 }
 
-function doMath() {
-    let a = Number(firstNumber);
-    let b = Number(secondNumber);
-    switch (operation) {
-        case "+":
-            answer = a + b;
-            break;
-        case "-": 
-            answer = a - b;
-            break;
-        case "/": 
-            answer = a / b;
-            break;
-        case "*":
-            answer = a * b;
-        default: 
-            break;
+function processKeyValue(value) {
+    if (value.match(/[0-9]/)) {
+        updateDisplay(value);
     }
-    display.innerHTML = answer;
-    operation = "";
+
+    // if (value.match(/[0-9]/)) {
+    //     if (!operation)
+    //      if (this.innerHTML === "." && !decimal) {
+    //          decimal = true;
+    //      } else if (this.innerHTML === "." && decimal) {
+    //          return
+    //      }
+    //      updateDisplay(this.innerHTML);
+         
+    //  } else if (this.innerHTML.match(/[\+\-\*\/]/)) {
+    //      operation = this.innerHTML;
+    //      decimal = false;
+    //      console.log(operation);
+    //  } else if (this.innerHTML === "=") {
+    //      doMath();
+    //  } else if (this.innerHTML === "Clear") {
+    //      resetCalculator();
+    //  }
+
 }
+
 
 buttons.forEach((button) => {
     
     button.addEventListener("click", function (e) {
-       if (this.innerHTML.match(/[.0-9]/)) {
-           
-            updateDisplay(this.innerHTML);
-        } else if (this.innerHTML.match(/[\+\-\*\/]/)) {
-            operation = this.innerHTML;
-            console.log(operation);
-        } else if (this.innerHTML === "=") {
-            doMath();
-        } else if (this.innerHTML === "Clear") {
-            firstNumber = "";
-            secondNumber = "";
-            thirdNumber = "";
-            display.innerHTML = "";
-        }
+        processKeyValue(this.innerHTML)
     });
 });
 
 
+function resetCalculator () {
+    firstNumber = "";
+    secondNumber = "";
+    operation = "";
+    answer = "";
+    display.innerHTML = "0";
+    decimal = false;
+}
+
+function add(a, b) {
+    return a + b
+}
+
+function subtract(a, b) {
+    return a - b
+}
+
+function multiply(a, b) {
+    return a * b
+}
+
+function divide(a, b) {
+    return a / b
+}
+
+function operate(a, b, operator) {
+    let answer;
+    switch (operator) {
+        case "+":
+            answer = add(a, b);
+            break;
+        case "-": 
+            answer = subtract(a, b);
+            break;
+        case "/": 
+            answer = divide(a, b);
+            break;
+        case "*":
+            answer = multiply(a, b);
+        default: 
+            break;
+    }
+    return answer;
+}
