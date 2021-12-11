@@ -22,7 +22,7 @@ function processKeyValue(value) {
     let working = (!operation["sign"]) ? "firstNumber" : "secondNumber";
 
     if (value.match(/[0-9]/)) {
-        if (operation["answer"] && !operation.sign) operation.reset() 
+        if (operation["answer"] && !operation.sign) operation.reset();
         if (operation[working] === null) {
             operation[working] = value;
 
@@ -31,6 +31,7 @@ function processKeyValue(value) {
         }
 
     } else if (value === "." && !operation["decimal"]) {
+        if (operation["answer"] && !operation.sign) operation.reset();
         if (operation[working] === null) operation[working] = 0;
         operation[working] += value;
         operation["decimal"] = true;
@@ -73,6 +74,7 @@ function processKeyValue(value) {
     } else if (value === "clear") {
         operation.reset();
     }
+    
     if (operation[working] === "-") operation[working] = null;
     display.innerHTML = (operation[working]) ? operation[working] : 0;
 }
