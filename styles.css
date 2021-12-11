@@ -47,6 +47,7 @@ body {
     flex: .5;
     align-items: center;
     justify-content: end;
+    padding: 12px;
 }
 
 textarea {
@@ -77,6 +78,10 @@ button {
     border-radius: 4px;
     margin: 0px 2px;
     padding: 0;
+}
+
+.double {
+    flex-grow: 2;
 }
 
 .buttonPlaceholder {
