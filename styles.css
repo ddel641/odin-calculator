@@ -6,69 +6,75 @@ body {
     height: 100vh;
     overflow: hidden;
     margin: 0px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-#header { 
-    height: 50px;
-    background: blue;
-}
-
+#header,
 #footer { 
     height: 50px;
-    background: blue;
 }
+
+
+.main,
 #content {
     display: flex;
     justify-content: center;
+}
+
+#content {
     align-items: center;
     flex: 1;
 }
 
 .main { 
-    display: flex;
     flex-direction: column;
-    height: 500px;
-    justify-content: space-evenly;
+    height: 300px;
 }
 
-.history,
 .display,
 .buttons {
-    border: solid 1px rgb(155, 150, 150);
-    padding: 10px;
+    display: flex;
+    border: solid 10px rgb(34, 33, 33);
+    background: #8b97ba;
 }
 
-.history {
-    flex: 4;
+button:active {
+    filter: brightness(120%);
+    /* filter: saturate(10%); */
 }
 
 .display {
-    display: flex;
     flex: .5;
     align-items: center;
     justify-content: end;
     padding: 12px;
-}
-
-textarea {
-    display: inline-block;
-    /* border: none; */
-    width: 100%;
-    font-size: 115%;
-    line-height: 1;
+    border-bottom: 0px;
+    font-size: 28px;
+    
 }
 
 .buttons {
-    display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 8px;
 }
 
 .buttonRow {
     display: flex;
     margin: 2px;
     height: 40px;
-    /* justify-content: center; */
+}
+
+.num {
+    background-color: #baae8b;
+}
+
+.op {
+    background-color: #97ba8b;
+}
+
+.other {
+    background-color: #ae8bba;
 }
 
 button {
@@ -78,6 +84,7 @@ button {
     border-radius: 4px;
     margin: 0px 2px;
     padding: 0;
+    font-size: 18px;
 }
 
 .double {
@@ -85,5 +92,5 @@ button {
 }
 
 .buttonPlaceholder {
-    width: 40px;
+    width: 12px;
 }
